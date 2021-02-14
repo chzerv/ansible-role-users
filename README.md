@@ -2,6 +2,8 @@ Ansible Role: Users
 =========
 
 ![Ansible Molecule](https://github.com/chzerv/ansible-role-users/workflows/Test%20and%20release./badge.svg?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Ansible Role](https://img.shields.io/ansible/role/50034?color=dodgerblue)](https://galaxy.ansible.com/chzerv/users)
 
 Ansible role to manage users and groups on Linux systems.
 
