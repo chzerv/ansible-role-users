@@ -11,7 +11,7 @@
 - name: Manage users.
   user:
     name: "{{ item.username }}"
-    append: "{{ item.append | default(omit) }}"
+    append: "{{ item.append | default(true if item.groups is defined else omit) }}"
     comment: "{{ item.comment | default(omit) }}"
     create_home: "{{ item.create_home | default(false) }}"
     home: "{{ item.home | default('/home/' + item.username) }}"
