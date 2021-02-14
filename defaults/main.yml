@@ -1,2 +1,16 @@
 ---
-# defaults file for ansible-rule-users
+# Create a group for every user and make it their primary group.
+users_create_group_per_user: false
+
+# If the above is false, what group should be the primary group for users?
+# Defaults to the 'users' group.
+users_default_group: users
+
+# The default shell to be used for new users.
+users_default_shell: /bin/bash
+
+# List of users to be managed.
+users_user_list: []
+
+# List of groups to be managed.
+users_group_list: []
