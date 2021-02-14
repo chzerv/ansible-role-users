@@ -56,9 +56,9 @@ users_user_list: []
 > A list of users and their desired configuration. Supported values are:
 >
 > + `username`: The user's username.
-> + `append`: **[true|false]** If true, the user is **additionally** added to the groups specified in `groups`. If false, the user is **only** added to the groups specified in `groups`.
+> + `append`: **[true|false]** If true, the user is **additionally** added to the groups specified in `groups`. If false, the user is **only** added to the groups specified in `groups`. Defaults to `true`.
 > + `comment`: User description.
-> + `create_home`: **[true|false]** Whether to create a home directory for the user.
+> + `create_home`: **[true|false]** Whether to create a home directory for the user. Defaults to `true`.
 > + `home`: The user's home directory. Defaults to "/home/username".
 > + `generate_ssh_key`: **[true|false]** Whether to generate SSH keys for the user.
 > + `group`: The user's primary group. Controlled by the `users_default_group` variable.
@@ -68,7 +68,7 @@ users_user_list: []
 > + `shell`: The user's default shell. Controlled by the `users_default_shell` variable.
 > + `uid`: The user's ID (UID).
 > + `system`: **[true|false]** Whether this is a system account or not.
-> + `state`: **[present|absent]** Whether to create or remove the user.
+> + `state`: **[present|absent]** Whether to create or remove the user. Defaults to `present`.
 > + `expires`: An expiry date for the user's account. Setting this value to `-1` will remove the expiry time.
 > + `force`: If `state: absent`, directories associated with the user will also be deleted. When used with `generate_ssh_key: true`, existing keys will be overwritten.
 > + `sudo_opts`: `sudoers` configuration for the user. 
