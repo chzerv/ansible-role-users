@@ -21,7 +21,7 @@
     # Additional groups
     groups: "{{ item.groups | default(omit) }}"
     password: "{{ item.password | password_hash('sha512') if item.password is defined else '!' }}"
-    update_password: "{{ item.update_password | default('always') }}"
+    update_password: "{{ item.update_password | default('on_create') }}"
     shell: "{{ item.shell | default(users_default_shell) }}"
     uid: "{{ item.uid | default(omit) }}"
     system: "{{ item.system | default(omit) }}"

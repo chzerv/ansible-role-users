@@ -64,7 +64,7 @@ users_user_list: []
 > + `group`: The user's primary group. Controlled by the `users_default_group` variable.
 > + `groups`: Groups the user will be added to.
 > + `password`: The user's password. Hashed using `sha512`.
-> + `update_password`: **[true|false]** Update passwords if they differ.
+> + `update_password`: **[always|on_create]** If set to `always`, the password will be updated only if it's different than the previous one. If set to `on_create`, the password will be set only for new users. Defaults to `on_create`.
 > + `shell`: The user's default shell. Controlled by the `users_default_shell` variable.
 > + `uid`: The user's ID (UID).
 > + `system`: **[true|false]** Whether this is a system account or not.
