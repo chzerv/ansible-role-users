@@ -1,6 +1,60 @@
 ---
 - name: Converge
   hosts: all
+
+  vars:
+    users_group_list:
+      - name: test1
+        gid: 1004
+      - name: test2
+
+    users_user_list:
+      - username: john
+        comment: John doe
+        create_home: true
+        password: password
+        sudo_opts: ALL=(ALL) ALL
+        generate_ssh_key: true
+      - username: mary
+        comment: Mary doe
+        create_home: false
+        password: password2
+
+  pre_tasks:
+    - name: Update apt cache (Debian).
+      apt:
+        upgrade: true
+        update_cache: true
+      when: ansible_os_family == "Debian"
+
+    - name: Ensure required packages are installed (RedHat).
+      yum:
+        name:
+          - openssh-server
+          - openssh-clients
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Ensure required packages are installed (Debian).
+      apt:
+        name:
+          - openssh-server
+          - openssh-client
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Update pacman cache.
+      pacman:
+        update_cache: true
+        upgrade: true
+      when: ansible_os_family == "Archlinux"
+
+    - name: Ensure required packages are installed (ArchLinux).
+      pacman:
+        name: openssh
+        state: present
+      when: ansible_os_family == "Archlinux"
+
   tasks:
     - name: "Include ansible-role-users"
       include_role:
