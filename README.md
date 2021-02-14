@@ -1,6 +1,8 @@
 Ansible Role: Users
 =========
 
+![Ansible Molecule](https://github.com/chzerv/ansible-role-users/workflows/Test%20and%20release./badge.svg?branch=master)
+
 Ansible role to manage users and groups on Linux systems.
 
 Role Variables
