@@ -3,6 +3,7 @@ galaxy_info:
   description: Manage users and groups in Linux systems.
   license: license (BSD, MIT)
   min_ansible_version: 2.9
+  namespace: chzerv
   role_name: users
   platforms:
   - name: Fedora
