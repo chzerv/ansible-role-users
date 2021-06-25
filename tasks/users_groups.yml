@@ -30,6 +30,7 @@
     force: "{{ item.force | default(omit) }}"
   with_items: "{{ users_user_list }}"
   when: users_user_list is defined
+  no_log: true
   register: user_reg
 
 - name: Configure sudoers.
