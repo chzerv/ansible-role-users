@@ -21,14 +21,14 @@
         password: password2
 
   pre_tasks:
-    - name: Update apt cache (Debian).
-      apt:
+    - name: Update ansible.builtin.apt cache (Debian).
+      ansible.builtin.apt:
         upgrade: true
         update_cache: true
       when: ansible_os_family == "Debian"
 
     - name: Ensure required packages are installed (RedHat).
-      yum:
+      ansible.builtin.yum:
         name:
           - openssh-server
           - openssh-clients
@@ -36,7 +36,7 @@
       when: ansible_os_family == "RedHat"
 
     - name: Ensure required packages are installed (Debian).
-      apt:
+      ansible.builtin.apt:
         name:
           - openssh-server
           - openssh-client
@@ -57,5 +57,5 @@
 
   tasks:
     - name: "Include ansible-role-users"
-      include_role:
+      ansible.builtin.include_role:
         name: "ansible-role-users"

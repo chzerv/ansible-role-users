@@ -1,6 +1,6 @@
 ---
 - name: Manage groups.
-  group:
+  ansible.builtin.group:
     name: "{{ item.name }}"
     gid: "{{ item.gid | default(omit) }}"
     state: "{{ item.state | default('present') }}"
@@ -9,7 +9,7 @@
   when: users_group_list is defined
 
 - name: Manage users.
-  user:
+  ansible.builtin.user:
     name: "{{ item.username }}"
     append: "{{ item.append | default(true if item.groups is defined else omit) }}"
     comment: "{{ item.comment | default(omit) }}"
@@ -34,7 +34,7 @@
   register: user_reg
 
 - name: Configure sudoers.
-  template:
+  ansible.builtin.template:
     src: etc/sudoers.d/sudo-config.j2
     dest: "/etc/sudoers.d/{{ item.username }}"
     mode: "0644"
